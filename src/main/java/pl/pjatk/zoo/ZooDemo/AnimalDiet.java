@@ -1,6 +1,6 @@
 package pl.pjatk.zoo.ZooDemo;
 
-public enum Diet {
+public enum AnimalDiet {
     AIR,
     LAND,
     WATER

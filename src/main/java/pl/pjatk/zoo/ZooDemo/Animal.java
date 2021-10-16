@@ -3,12 +3,12 @@ package pl.pjatk.zoo.ZooDemo;
 public class Animal {
     private Integer id;
     private String specimen;
-    private Diet diet;
+    private AnimalDiet diet;
     private AnimalType type;
     private boolean isHungry;
     private boolean isHealthy;
 
-    public Animal(Integer id, String specimen, Diet diet, AnimalType type, boolean isHungry, boolean isHealthy) {
+    public Animal(Integer id, String specimen, AnimalDiet diet, AnimalType type, boolean isHungry, boolean isHealthy) {
         this.id = id;
         this.specimen = specimen;
         this.diet = diet;
@@ -33,11 +33,11 @@ public class Animal {
         this.specimen = specimen;
     }
 
-    public Diet getDiet() {
+    public AnimalDiet getDiet() {
         return diet;
     }
 
-    public void setDiet(Diet diet) {
+    public void setDiet(AnimalDiet diet) {
         this.diet = diet;
     }
 
