@@ -1,4 +1,4 @@
-package pl.pjatk.zoo.ZooDemo;
+package pl.pjatk.zoo.ZooDemo.Models;
 
 public class Animal {
     private Integer id;
