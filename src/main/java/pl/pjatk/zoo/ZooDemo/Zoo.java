@@ -21,6 +21,17 @@ public class Zoo {
         this.animals = animals;
     }
 
+    @Override
+    public String toString() {
+        return "Zoo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", isClosed=" + isClosed +
+                ", animals=" + animals +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
