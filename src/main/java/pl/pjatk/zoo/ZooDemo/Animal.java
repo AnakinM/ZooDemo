@@ -21,6 +21,18 @@ public class Animal {
         this.isHealthy = isHealthy;
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", specimen='" + specimen + '\'' +
+                ", diet=" + diet +
+                ", type=" + type +
+                ", isHungry=" + isHungry +
+                ", isHealthy=" + isHealthy +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
