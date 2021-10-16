@@ -8,6 +8,10 @@ public class Animal {
     private boolean isHungry;
     private boolean isHealthy;
 
+    public Animal() {
+
+    }
+
     public Animal(Integer id, String specimen, AnimalDiet diet, AnimalType type, boolean isHungry, boolean isHealthy) {
         this.id = id;
         this.specimen = specimen;
