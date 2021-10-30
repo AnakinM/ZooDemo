@@ -1,11 +1,28 @@
 package pl.pjatk.zoo.ZooDemo.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "animal")
 public class Animal {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = true, length = 200)
     private String specimen;
+
+    @Column(nullable = true)
     private AnimalDiet diet;
+
+    @Column(nullable = true)
     private AnimalType type;
+
+    @Column()
     private boolean isHungry;
+
+    @Column()
     private boolean isHealthy;
 
     public Animal() {

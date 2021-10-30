@@ -1,12 +1,26 @@
 package pl.pjatk.zoo.ZooDemo.Models;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "zoo")
 public class Zoo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = true, length = 200)
     private String name;
+
+    @Column(nullable = true, length = 200)
     private String location;
+
+    @Column()
     private boolean isClosed;
+
+    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
     private List<Animal> animals;
 
     public Zoo() {
