@@ -20,7 +20,7 @@ public class Zoo {
     @Column()
     private boolean isClosed;
 
-    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Animal> animals;
 
     public Zoo() {
