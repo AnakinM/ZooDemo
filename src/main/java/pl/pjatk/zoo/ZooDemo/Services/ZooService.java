@@ -38,7 +38,50 @@ public class ZooService {
         return zooRepository.findAll();
     }
 
-    public Optional<Zoo> findZooById(Integer id) {
-        return zooRepository.findById(id);
+    public Zoo findZooById(Integer id) {
+        Optional<Zoo> byId = zooRepository.findById(id);
+        return byId.orElse(new Zoo());
+    }
+
+    public void addSufixToName(Zoo zoo) {
+        String sufixName;
+        if (zoo.getName() != null && zoo.getLocation().equals("Gdansk")) {
+            sufixName = zoo.getName() + "Gdanskie zoo ";
+        }
+        else if (zoo.getName() != null && zoo.getLocation().equals("Warszawa")) {
+            sufixName = zoo.getName() + "Warszawskie zoo ";
+        }
+        else {
+            sufixName = zoo.getName() + "zoo ";
+        }
+        zoo.setName(sufixName);
+    }
+
+    public void addAnimalToZoo(Zoo zoo, Animal animal) {
+        if (zoo.getAnimals() != null) {
+            zoo.getAnimals().add(animal);
+        }
+    }
+
+    public void changeZooLocationIfEmpty(Zoo zoo, String newLocation) {
+        if (zoo.getLocation() != null && zoo.getAnimals() == null) {
+            zoo.setLocation(newLocation);
+        }
+    }
+
+    public boolean isAnimalOk (Animal animal) {
+        return animal.isHealthy() && !animal.isHungry();
+    }
+
+    public void changeAnimalDietIfSick (Animal animal) {
+        if (!animal.isHealthy() && animal.getDiet() == AnimalDiet.MEAT) {
+            animal.setDiet(AnimalDiet.MIXED);
+        }
+    }
+
+    public void feedAnimalIfHungry (Animal animal) {
+        if (animal.isHungry()) {
+            animal.setHungry(false);
+        }
     }
 }
