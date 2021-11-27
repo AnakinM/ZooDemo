@@ -43,18 +43,18 @@ public class ZooService {
         return byId.orElse(new Zoo());
     }
 
-    public void addSufixToName(Zoo zoo) {
-        String sufixName;
+    public void addPrefixToName(Zoo zoo) {
+        String prefixName;
         if (zoo.getName() != null && zoo.getLocation().equals("Gdansk")) {
-            sufixName = zoo.getName() + "Gdanskie zoo ";
+            prefixName = "Gdanskie zoo " + zoo.getName();
         }
         else if (zoo.getName() != null && zoo.getLocation().equals("Warszawa")) {
-            sufixName = zoo.getName() + "Warszawskie zoo ";
+            prefixName = "Warszawskie zoo " + zoo.getName();
         }
         else {
-            sufixName = zoo.getName() + "zoo ";
+            prefixName = "zoo " + zoo.getName();
         }
-        zoo.setName(sufixName);
+        zoo.setName(prefixName);
     }
 
     public void addAnimalToZoo(Zoo zoo, Animal animal) {
@@ -64,7 +64,7 @@ public class ZooService {
     }
 
     public void changeZooLocationIfEmpty(Zoo zoo, String newLocation) {
-        if (zoo.getLocation() != null && zoo.getAnimals() == null) {
+        if (zoo.getLocation() != null && (zoo.getAnimals() == null || zoo.getAnimals().isEmpty())) {
             zoo.setLocation(newLocation);
         }
     }
