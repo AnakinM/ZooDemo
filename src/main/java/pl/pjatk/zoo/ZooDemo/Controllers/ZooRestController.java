@@ -6,7 +6,6 @@ import pl.pjatk.zoo.ZooDemo.Models.Zoo;
 import pl.pjatk.zoo.ZooDemo.Services.ZooService;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController

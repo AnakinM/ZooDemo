@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import pl.pjatk.zoo.ZooDemo.Models.Zoo;
 
-import java.util.List;
 
 public interface ZooRepository extends JpaRepository<Zoo, Integer> {
 

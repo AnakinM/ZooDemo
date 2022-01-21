@@ -1,10 +1,9 @@
 package pl.pjatk.zoo.ZooDemo.Services;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import pl.pjatk.zoo.ZooDemo.Models.Animal;
 import pl.pjatk.zoo.ZooDemo.Models.AnimalDiet;
 import pl.pjatk.zoo.ZooDemo.Models.AnimalType;
@@ -15,17 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
-public class ZooServiceTest {
+@SpringBootTest
+public class ZooServiceIT {
 
-    @Mock
+    @Autowired
+    private ZooService zooService = new ZooService(null);
+
+    @MockBean
     private ZooRepository zooRepository;
-
-    @InjectMocks
-    private ZooService zooService;
 
     @Test
     void shouldAddPrefixToNameGdansk () {
@@ -91,6 +88,4 @@ public class ZooServiceTest {
         zooService.feedAnimalIfHungry(animal);
         assertThat(animal.isHungry()).isFalse();
     }
-
-
 }

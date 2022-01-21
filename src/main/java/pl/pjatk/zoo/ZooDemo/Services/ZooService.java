@@ -31,7 +31,7 @@ public class ZooService {
     }
 
     public Zoo getEmptyZooForName(String name){
-        return new Zoo(1, "Jurassic Park", name, false, null);
+        return new Zoo(1, name, "Gdansk", false, null);
     }
 
     public List<Zoo> findAllZoos() {
